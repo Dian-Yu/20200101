@@ -1,65 +1,67 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Our Story</title>
-	    
-        <link type="text/css" rel="stylesheet" href="./index_files/default.css">
-		<script type="text/javascript" src="./index_files/jquery.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-parser.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-jit.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
-		<script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
-		<script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
-		<script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
-	    <style type="text/css">
-<!--
-.STYLE1 {color: #666666}
--->
-        </style>
-</head>
-    <body>
-			<audio autoplay="autopaly">
-					<source src="http://music.baidutt.com/up/kwcswdcp/maaydu.mp3" type="audio/mp3" />
-			</audio>
-        <div id="main">
-            <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
-            <div id="wrap">
-                <div id="text">
-			        <div id="code">
-			        	<span class="say">亲爱的戒戒</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">花开一季，有落红为证</span><br>
-						<span class="say"> </span><br>
-                        <span class="say">逝去的岁月，如何能托于烟尘</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">你的浅笑，是我永生眷恋</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">相思的真情，是否能明白一二</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">亲爱的宝贝，你是我的唯一</span><br>
-						<span class="say"> </span><br>
-			        	<span class="say">爱你永远。。。</span><br>
-						<span class="say"> </span><br>
-                        <span class="say"><span class="space"></span> --爱你的哥哥--</span>
-			        </div>
-                </div>
-                <div id="clock-box">
-                    吕绍阁<span class="STYLE1">与</span> 邸洁<span class="STYLE1">已经相恋了</span>
-                  <div id="clock"></div>
-              </div>
-                <canvas id="canvas" width="1100" height="680"></canvas>
-            </div>
-            
-        </div>
-    
-    <script>
-    </script>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Our Story</title>
 
-    <script>
-    (function(){
+    <link type="text/css" rel="stylesheet" href="./index_files/default.css">
+    <script type="text/javascript" src="./index_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-parser.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-jit.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
+    <script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./config.js"></script>
+    <style type="text/css">
+        <!--
+        .STYLE1 {
+            color: #666666
+        }
+
+        -->
+    </style>
+</head>
+<body>
+<audio autoplay="autopaly">
+    <source src="./index_files/music.mp3" type="audio/mp3"/>
+</audio>
+<div id="main">
+    <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a
+            href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a
+            href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。
+    </div>
+    <div id="wrap">
+        <div id="text">
+            <div id="code">
+            </div>
+        </div>
+        <div id="clock-box">
+                    <span id="clock-box-inside-text">
+					</span>
+            <div id="clock"></div>
+        </div>
+        <canvas id="canvas" width="1100" height="680"></canvas>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $('#code').html(config.lines.map(item => {
+        return `<span class="say">${item}</span><br>
+						<span class="say"> </span><br>`
+    }).reduce((a, b) => {
+        return a + b;
+    }))
+    $("#clock-box-inside-text").html(`${config.names[0]}<span class="STYLE1">与</span> ${config.names[1]}<span class="STYLE1">已经相恋了</span>`)
+</script>
+
+<script>
+    (function () {
         var canvas = $('#canvas');
-		
+
         if (!canvas[0].getContext) {
             $("#error").show();
             return false;
@@ -67,7 +69,7 @@
 
         var width = canvas.width();
         var height = canvas.height();
-        
+
         canvas.attr("width", width);
         canvas.attr("height", height);
 
@@ -93,7 +95,7 @@
                     [546, 357, 608, 252, 678, 221, 6, 100, [
                         [590, 293, 646, 277, 648, 271, 2, 80]
                     ]]
-                ]] 
+                ]]
             ],
             bloom: {
                 num: 700,
@@ -112,17 +114,17 @@
         var foot = tree.footer;
         var hold = 1;
 
-        canvas.click(function(e) {
+        canvas.click(function (e) {
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
             if (seed.hover(x, y)) {
-                hold = 0; 
+                hold = 0;
                 canvas.unbind("click");
                 canvas.unbind("mousemove");
                 canvas.removeClass('hand');
             }
-        }).mousemove(function(e){
+        }).mousemove(function (e) {
             var offset = canvas.offset(), x, y;
             x = e.pageX - offset.left;
             y = e.pageY - offset.top;
@@ -147,14 +149,14 @@
 
         var growAnimate = eval(Jscex.compile("async", function () {
             do {
-    	        tree.grow();
+                tree.grow();
                 $await(Jscex.Async.sleep(10));
             } while (tree.canGrow());
         }));
 
         var flowAnimate = eval(Jscex.compile("async", function () {
             do {
-    	        tree.flower(2);
+                tree.flower(2);
                 $await(Jscex.Async.sleep(10));
             } while (tree.canFlower());
         }));
@@ -186,14 +188,14 @@
         }));
 
         var textAnimate = eval(Jscex.compile("async", function () {
-		    var together = new Date();
-		    together.setFullYear(2014, 05, -15); 			//时间年月日
-		    together.setHours(20);						//小时	
-		    together.setMinutes(00);					//分钟
-		    together.setSeconds(0);					//秒前一位
-		    together.setMilliseconds(2);				//秒第二位
+            var together = new Date();
+            together.setFullYear(2014, 05, -15); 			//时间年月日
+            together.setHours(20);						//小时
+            together.setMinutes(00);					//分钟
+            together.setSeconds(0);					//秒前一位
+            together.setMilliseconds(2);				//秒第二位
 
-		    $("#code").show().typewriter();
+            $("#code").show().typewriter();
             $("#clock-box").fadeIn(500);
             while (true) {
                 timeElapse(together);
@@ -214,7 +216,8 @@
 
         runAsync().start();
     })();
-    </script>
+</script>
 
 
-</body></html>
+</body>
+</html>

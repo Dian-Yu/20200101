@@ -1,9 +1,4 @@
-## 爱情树
-
-> 修改config.js的配置就可以做一个属于自己的爱情树了,喜欢的话fork or star一下呗~
-
-### config.js 说明
-```text
+// 霸都丶傲天 2019/7/9  https://Github.com/AJLoveChina
 var config = {
     // 下面的句子不一定非要7句， 你也可以改成4句，2句话都可以
     lines: [
@@ -22,11 +17,3 @@ var config = {
     // 双方的名字
     names: ["笨笨熊", "黑猪猪"]
 }
-```
-
-Tip:换背景音乐的话,只需要把 `index_files/music.mp3` 换成你自己的音乐即可, 但是不可以修改文件名称哦.
-
-如果不想要音乐, 就把这个music.mp3文件删除.
-
-## 截图演示
-<img src="./index_files/love-tree.gif"/>
